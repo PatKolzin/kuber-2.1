@@ -28,7 +28,7 @@
 
 4. Проверю, запишутся ли данные в файл контейнером busybox и будут ли они доступны контейнеру multitool.
 
-Ссылка - [Deployment](https://)
+Ссылка - [Deployment](https://github.com/PatKolzin/kuber-2.1/blob/main/src/deployment.yaml)
 
 Проверю данные из контейнеров:
 
@@ -55,6 +55,6 @@
 
 Видно, что в контейнере пода присутствует файл logdata, который примонтирован из машины - кластера MicroK8S.
 
-4. Ссылка на манифест [DaemonSet](http://)
+4. Ссылка на манифест [DaemonSet](https://github.com/PatKolzin/kuber-2.1/blob/main/src/daemonset.yaml)
 
 
