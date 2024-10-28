@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: multi-container-deployment
+  namespace: volume-part1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: multi-container-app
+  template:
+    metadata:
+      labels:
+        app: multi-container-app
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["sh", "-c", "while true; do echo $(date) >> /busy_share/data.txt; sleep 5; done"]
+        volumeMounts:
+        - name: deploy-volume
+          mountPath: "/busy_share"
+      - name: multitool
+        image: wbitt/network-multitool
+        command: ["sh", "-c", "while true; do cat /multitool_share/data.txt; sleep 5; done"]
+        volumeMounts:
+        - name: deploy-volume
+          mountPath: "/multitool_share"
+      volumes:
+      - name: deploy-volume
+        emptyDir: {}
