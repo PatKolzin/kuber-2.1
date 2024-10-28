@@ -18,7 +18,7 @@ spec:
         # command: [ "sh", "-c", "tail -f /var/log/syslog" ]
         volumeMounts:
         - name: syslog-volume
-          mountPath: /log-data/123
+          mountPath: /log-data
       volumes:
       - name: syslog-volume
         hostPath:
